@@ -1,0 +1,158 @@
+body {
+    width: 100vw; 
+    height: 100vh;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+    background-color: #333333;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+
+.pokedex {
+    background-color: #cc0000;
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    padding: 20px;
+    border-radius: 10px;
+    width: 450px;
+    max-width: 90%;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.7);
+}
+
+#dados {
+    text-align: center;
+    color: white; 
+    text-transform: capitalize;
+    font-size: 1em;
+    padding: 0 10px;
+    width: 100%; /* Garante que o contêiner #dados use toda a largura */
+}
+
+#dados h4 {
+    margin: 10px 0 5px 0;
+    font-size: 1.1em;
+}
+
+#sprite {
+    width: 150px;
+    height: 150px;
+    /* align-self: center; — REMOVIDO: Margin auto é suficiente dentro do #dados */
+    border-radius: 50%; 
+    margin: 10px auto; /* CORREÇÃO: Centraliza o bloco da imagem */
+    display: block; /* Essencial para margin: auto funcionar */
+}
+
+#search {
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    width: 80%;
+    margin-bottom: 10px;
+}
+
+#title-search {
+    color: white;
+    font-weight: bold;
+    margin-bottom: 15px; /* AJUSTADO: Reduzida a margem para evitar espaço em branco */
+    font-size: 1.2em;
+}
+
+/* CONTAINER PARA OS DOIS BOTÕES: Permite que fiquem lado a lado */
+.botoes-container {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 15px;
+    margin-bottom: 5px;
+    width: 100%;
+}
+
+/* ESTILO GERAL DOS BOTÕES (aplicado a #bttn e #random-bttn) */
+.botoes-container button {
+    padding: 10px 15px; 
+    max-width: 180px; 
+    flex: 1; 
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s, color 0.2s, border-color 0.2s; /* Adicione color e border-color para transição suave */
+    /* Remova 'border: none;' daqui para que possamos usar borda no #random-bttn */
+    border: 1px solid transparent; /* Adicione uma borda transparente para manter a altura consistente */
+}
+
+/* ESTILO ESPECÍFICO DO BOTÃO ALEATÓRIO */
+#random-bttn {
+    /* Tornando-o transparente */
+    background-color: transparent; 
+    
+    /* Cor branca/clara para o texto e ícone (visível no fundo vermelho) */
+    color: white; 
+    
+    /* Adiciona uma borda branca visível para delimitar o botão */
+    border: 1px solid white; 
+}
+
+#random-bttn:hover {
+    /* No hover, inverte as cores para dar o efeito de ascensão */
+    background-color: white; /* O botão fica com fundo branco */
+    color: #cc0000;         /* O texto e ícone ficam vermelhos (cor da pokedex) */
+    border-color: #cc0000;  /* A borda pode mudar de cor também */
+}
+
+/* Aumentando APENAS o ícone do dado */
+#random-bttn i {
+    font-size: 1.3em;
+    margin-right: 5px;
+}
+
+
+/* ESTILOS PARA REDUZIR O SCROLL (GRID DE ESTATÍSTICAS) */
+.stats-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr; 
+    gap: 5px 10px; 
+    width: 95%;
+    margin: 5px auto 15px auto; 
+}
+
+.stat-item {
+    display: flex;
+    justify-content: space-between; 
+    padding: 0 2px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2); 
+}
+
+.stat-item p {
+    margin: 3px 0;
+    font-size: 0.85em;
+}
+
+.stat-value {
+    font-weight: bold;
+}
+
+#detalhes p {
+    margin: 3px 0; 
+    font-size: 0.9em;
+}
+
+/* Responsividade básica */
+@media (max-width: 500px) {
+    .pokedex {
+        width: 95%;
+        padding: 15px;
+    }
+    .stats-grid {
+        /* No mobile, voltamos para 1 coluna se a tela for muito pequena */
+        grid-template-columns: 1fr; 
+        width: 100%;
+    }
+}
